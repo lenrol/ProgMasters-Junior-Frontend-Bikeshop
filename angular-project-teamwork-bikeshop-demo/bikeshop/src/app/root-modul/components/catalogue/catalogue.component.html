@@ -1,0 +1,67 @@
+<!-- FIREBASE DATABASE TESTING -->
+
+<div class="container">
+  <div class="logo mb-2">
+    <img src="assets/logo/logo-black-empty.svg" alt="" Width="100px">
+  </div>
+
+  <section class="my-3 filter">
+    <div class="row">
+      <!-- <h4 class="col-6">Search by Brand or Category:</h4> -->
+      <h4 class="col-6">Search between prices:</h4>
+    </div>
+    <div class="row mb-3">
+      <!-- <div class="col-3">
+        <select (change)="selectFilterBy($event.target)" class="form-select">
+          <option selected disabled hidden>Filter by:</option>
+          <option *ngFor="let prop of filterProperties" [value]="prop">{{ prop }}</option>
+        </select>
+      </div>
+      <div class="col-3">
+        <select (change)="filterCustomers()" #filterValue class="form-select" *ngIf="selectedFilterProps">
+          <option selected disabled hidden>{{selectedFilterProps.placeholder}}</option>
+          <option *ngFor="let option of selectedPropValues$ | async" [value]="option">{{ option}}</option>
+        </select>
+      </div> -->
+      <div class="mb-4 col-6">
+        <label class="form-label">Price min: {{minPrice.value}} EUR</label>
+        <input (change)="allFilter(minPrice.value, maxPrice.value, inputID.value)" type="range" class="form-range"
+          min="0" max="12000" step="400" value="0" #minPrice>
+        <label class="form-label">Price max: {{maxPrice.value}} EUR</label>
+        <input (change)="allFilter(minPrice.value, maxPrice.value, inputID.value)" type="range" class="form-range"
+          min="0" max="12000" step="400" value="12000" #maxPrice>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <input (keyup)="allFilter(minPrice.value, maxPrice.value, inputID.value)" type="text" class="form-control"
+        placeholder="Search by a brand or name..." #inputID>
+    </div>
+  </section>
+
+
+
+</div>
+<div class="container">
+  <!-- REAL CONTENT -->
+  <div class="d-flex flex-wrap justify-content-evenly text-center">
+    <div class="row">
+      <div *ngFor="let product of products$ | async" class="col-sm-4 d-flex align-items-stretch">
+        <div class="card m-1">
+          <img class="card-img-top" [src]="product.imgUrl2" [alt]="product.name" height="300px">
+          <div class="card-body d-grid gap-1">
+            <p class="card-title">{{product?.brand}}</p>
+            <p class="card-subtitle">{{product?.name}}</p>
+            <p class="card-text">Price: {{product?.price}} EUR</p>
+            <button type="button" class="btn btn-outline-info" (click)="goToDetails(product.id)">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGINATOR -->
+  <mat-paginator (page)="handlePageEvent($event)" [length]="(dataSize$ | async)?.length"
+    [pageSizeOptions]="pageSizeOptions" [showFirstLastButtons]="true" aria-label="Select page">
+  </mat-paginator>
+</div>

@@ -1,0 +1,78 @@
+.intro-container{
+  background-image: linear-gradient(to top, rgba(0,0,0, 0.6), rgba(255,255,255, 1)), url('/assets/img/sole-bicycles-mZz_kW1SQQc-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border: 10px black;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo{
+  display: flex;
+  justify-content: center;
+ }
+
+ .text {
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+ }
+
+ .featureCards {
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+
+  padding: 1rem;
+
+  text-align: center;
+ }
+
+ .nums{
+  border-color: darkgrey;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.bottomText {
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  color: darkgrey;
+}
+
+.offer {
+  background-image: linear-gradient(to bottom, rgba(0,0,0, 0.4), rgba(255,255,255, 0.8)), url('/assets/img/Layer 1.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  color: black;
+  text-transform:capitalize;
+  font-weight: 700;
+  background-blend-mode:soft-light;
+}
+
+.text_offer {
+  padding: 1rem;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  text-decoration: overline underline;
+}
+
+.card {
+  background-color: darkgrey;
+  margin-top: 3rem;
+}
+
+.features_text {
+  font-weight: bold;
+}
+
+

@@ -1,0 +1,27 @@
+<section class="container">
+  <div class="logo mb-2">
+    <img src="assets/logo/logo-black-empty.svg" alt="" Width="100px">
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <img class="img-fluid" [src]="product?.imgUrl2">
+    </div>
+    <div class="col-4 text-center">
+      <h2>{{product?.brand}}</h2>
+      <h3>{{product?.name}}</h3>
+      <p>Category: {{product?.category}}</p>
+      <p>{{product?.price | currency: 'EUR' }}</p>
+      <p>In Stock: {{product?.amount}} pc</p>
+      <p>{{product?.description}}</p>
+    </div>
+  </div>
+  <div>
+  </div>
+
+</section>
+
+
+
+<div class="d-flex justify-content-center m-3">
+  <button class="btn btn-outline-secondary justify-content-center" (click)="goToHome()">Back to the catalogue</button>
+</div>

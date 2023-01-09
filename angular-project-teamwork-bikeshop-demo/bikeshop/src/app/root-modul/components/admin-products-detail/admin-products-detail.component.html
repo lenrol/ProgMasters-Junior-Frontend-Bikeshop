@@ -1,0 +1,60 @@
+<main class="mb-4">
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <h3 class="my-5">Add or edit a new product</h3>
+        <div class="my-5">
+          <form [formGroup]="productDetailsForm" (ngSubmit)="submitDetailsForm()" novalidate>
+            <div *ngIf="brand" class="form-floating my-2">
+              <input class="form-control" type="text" id="brand" formControlName="brand"
+                placeholder="Enter brand here...">
+              <label for="brand">Brand</label>
+              <div *ngIf="brand.invalid && brand.touched" class="small text-danger">A brand is
+                required.</div>
+            </div>
+            <div *ngIf="name" class="form-floating my-2">
+              <input class="form-control" id="name" type="text" formControlName="name" placeholder="Enter name here...">
+              <label for="name">Name</label>
+              <div *ngIf="name.invalid && name.touched" class="small text-danger">A name is required.</div>
+            </div>
+            <div *ngIf="category" class="form-floating my-2">
+              <input class="form-control" id="category" type="text" formControlName="category"
+                placeholder="Select a category here">
+              <label for="category">Category</label>
+              <div *ngIf="category.invalid && category.touched" class="small text-danger">A categroy is required.</div>
+            </div>
+            <div *ngIf="price" class="form-floating my-2">
+              <input class="form-control" id="price" type="number" formControlName="price"
+                placeholder="Enter the price here...">
+              <label for="price">Price</label>
+              <div *ngIf="price.invalid && price.touched" class="small text-danger">A price is required.</div>
+            </div>
+            <div *ngIf="amount" class="form-floating my-2">
+              <input class="form-control" id="amount" type="number" formControlName="amount"
+                placeholder="Enter the amount here...">
+              <label for="amount">Amount</label>
+              <div *ngIf="amount.invalid && amount.touched" class="small text-danger">An amount is required.</div>
+            </div>
+            <div *ngIf="imgUrl2" class="form-floating my-2">
+              <input class="form-control" id="imgUrl2" type="text" formControlName="imgUrl2"
+                placeholder="Enter the image source here...">
+              <label for="imgUrl2">Image link</label>
+              <div *ngIf="imgUrl2.invalid && imgUrl2.touched" class="small text-danger">An image link is required.</div>
+            </div>
+            <div *ngIf="description" class="form-floating my-2">
+              <input class="form-control" id="description" type="text" formControlName="description"
+                placeholder="Enter the description here...">
+              <label for="description">Description</label>
+              <div *ngIf="description.invalid && description.touched" class="small text-danger">A description is
+                required.</div>
+            </div>
+
+            <!-- Submit Button-->
+            <button #submitBtn class="btn btn-primary text-uppercase mt-2" id="submitButton" type="submit"
+              [disabled]="!productDetailsForm.valid">{{updateProductId ? 'Update' : 'Create'}}</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

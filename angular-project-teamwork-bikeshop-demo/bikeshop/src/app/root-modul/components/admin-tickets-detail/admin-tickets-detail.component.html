@@ -1,0 +1,47 @@
+<main class="mb-4">
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <h3 class="my-5">Add or edit a new ticket</h3>
+        <div class="my-5">
+          <form [formGroup]="ticketDetailsForm" (ngSubmit)="submitDetailsForm()" novalidate>
+            <div *ngIf="status" class="form-floating my-2">
+              <input class="form-control" type="text" id="status" formControlName="status"
+                placeholder="Enter status here...">
+              <label for="status">Status</label>
+              <div *ngIf="status.invalid && status.touched" class="small text-danger">A status is
+                required.</div>
+            </div>
+            <div *ngIf="userID" class="form-floating my-2">
+              <input class="form-control" id="userID" type="number" formControlName="userID"
+                placeholder="Enter userID here...">
+              <label for="userID">userID</label>
+              <div *ngIf="userID.invalid && userID.touched" class="small text-danger">An userID is required.</div>
+            </div>
+            <div *ngIf="date" class="form-floating my-2">
+              <input class="form-control" id="date" type="date" formControlName="date" placeholder="Select a date here">
+              <label for="date">Date of service request</label>
+              <div *ngIf="date.invalid && date.touched" class="small text-danger">A date is required.</div>
+            </div>
+            <div *ngIf="date2" class="form-floating my-2">
+              <input class="form-control" id="date2" type="date" formControlName="date2"
+                placeholder="Enter the date2 here...">
+              <label for="date2">Date of last modification</label>
+              <div *ngIf="date2.invalid && date2.touched" class="small text-danger">A date is required.</div>
+            </div>
+            <div *ngIf="msg" class="form-floating my-2">
+              <input class="form-control" id="msg" type="text" formControlName="msg"
+                placeholder="Enter the message here...">
+              <label for="msg">Message or comment</label>
+            </div>
+
+
+            <!-- Submit Button-->
+            <button #submitBtn class="btn btn-primary text-uppercase mt-2" id="submitButton" type="submit"
+              [disabled]="!ticketDetailsForm.valid">{{updateTicketId ? 'Update' : 'Create'}}</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

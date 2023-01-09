@@ -1,0 +1,36 @@
+<!-- <app-header backgroundUrl="assets/img/contact-bg.jpg" subtitleText="Have questions? We have answers." titleText="Contact Us"></app-header> -->
+
+<main class="mb-4">
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="my-5">
+          <form [formGroup]="loginForm">
+
+            <div *ngIf="email" class="form-floating">
+              <input formControlName="email" class="form-control" id="email" type="email"
+                placeholder="Enter your email...">
+              <label for="email">Email address</label>
+              <div *ngIf="email.invalid && email.touched" class="small text-danger">
+                <span *ngIf="email.invalid && email.touched">A valid email is required.</span>
+              </div>
+            </div>
+
+            <div *ngIf="password" class="form-floating">
+              <input formControlName="password" class="form-control" type="password" id="password"
+                placeholder="Enter your password...">
+              <label for="password">Password</label>
+              <div *ngIf="password.invalid && password.touched" class="small text-danger">A password is required.</div>
+            </div>
+
+
+            <!-- Submit Button-->
+            <button [disabled]="loginForm.invalid" (click)="login()" class="mx-3 btn btn-primary text-uppercase mt-2"
+              id="loginButton" type="submit">Login</button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

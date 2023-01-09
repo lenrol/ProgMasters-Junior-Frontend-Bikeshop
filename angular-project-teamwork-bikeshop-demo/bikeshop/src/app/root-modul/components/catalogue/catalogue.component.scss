@@ -1,0 +1,27 @@
+.card{
+  transition:0.5s;
+}
+.card-title{
+  font-size:1.5rem;
+  transition:1s;
+}
+
+.card-subtitle {
+  font-size:1.2rem;
+  transition:1s;
+}
+
+.card-text {
+  transition: 1s;
+}
+
+.card:hover{
+  transform: scale(1.05);
+  box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
